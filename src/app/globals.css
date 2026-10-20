@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Paper, ink and one wine */
+  --bg: #f5f2ea;
+  --surface: #fbf9f4;
+  --showcase: #ebe7dd;
+  --text: #111111;
+  --text-muted: #5a5750;
+  --border: #dcd6c9;
+  --stroke: #cfc8b9;
+  --accent: #6b2a3a;
+  --accent-hover: #55202e;
+  --accent-soft: #ecdfe2;
+  --logo-color: #5f5a54;
+  --success: #6b8560;
+  --grain-opacity: 0.7;
+  --grain-blend: multiply;
+  --shadow-soft: 0 1px 2px rgb(17 17 17 / 0.04);
+  --shadow-lift: 0 1px 2px rgb(17 17 17 / 0.05), 0 16px 32px -20px rgb(17 17 17 / 0.25);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #121211;
+  --surface: #191917;
+  --showcase: #1e1d1b;
+  --text: #f2efe8;
+  --text-muted: #a29e95;
+  --border: #2d2b28;
+  --stroke: #3a3834;
+  --accent: #d2909f;
+  --accent-hover: #dfa8b4;
+  --accent-soft: #261a1e;
+  --logo-color: #b5afa5;
+  --success: #9cb38f;
+  --grain-opacity: 0.22;
+  --grain-blend: normal;
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.35), 0 16px 32px -20px rgb(0 0 0 / 0.7);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-showcase: var(--showcase);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-stroke: var(--stroke);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+}
+
+/* Paper texture: fine tooth grain over a soft, uneven fibre mottle, fixed behind the page. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0 0.26 0 0 0 0.32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .03' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.43 0 0 0 0 0.32 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  overflow-x: clip;
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.65;
+  letter-spacing: -0.003em;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Theme cross-fade on the main surfaces */
+.surface-fade {
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+/* Fade-up on scroll. Only hidden once JS has marked the page, so no-JS visitors see everything. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* gb. logo: live text in the heading serif (Instrument Serif). Italic wine "gb", upright ink full stop. No hover change. */
+.logo {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-decoration: none;
+  color: var(--text);
+}
+.logo-gb {
+  font-style: italic;
+  color: var(--accent);
+}
+.logo-dot {
+  font-style: normal;
+  color: var(--text);
+}
+.logo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+@media (min-width: 641px) {
+  .logo {
+    font-size: 40px;
+  }
+}
+
+/* Client logos: each logo file is a mask filled with one grey; wine on hover (and focus for linked ones). */
+.client-logo {
+  display: block;
+  height: 24px;
+  width: calc(var(--w) * 0.75px);
+  background-color: var(--logo-color);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
+  transition: background-color 0.2s ease;
+}
+@media (min-width: 768px) {
+  .client-logo {
+    height: 32px;
+    width: calc(var(--w) * 1px);
+  }
+}
+.client-logo:hover,
+.logo-link:hover .client-logo,
+.logo-link:focus-visible .client-logo {
+  background-color: var(--accent);
+}
+.logo-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+/* Card lift */
+.lift {
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .lift:hover {
+    transform: none;
+  }
+}
+
+/* Serif display type */
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}

@@ -1,0 +1,195 @@
+---
+title: Clearfine
+subtitle: Making driving admin less stressful.
+slug: clearfine
+role: Product Designer (sole designer)
+team: Product Manager, developers
+timeline: 2 months
+platform: iOS
+focus: Product design, UX, interaction design, UX writing
+liveUrl: https://apps.apple.com/ng/app/clearfine/id6756209174
+liveLabel: View on App Store
+covers: [/work/clearfine/cover-1.png, /work/clearfine/cover-2.png, /work/clearfine/cover-3.png]
+coverImage: { src: /work/clearfine/cover.png, alt: "Two Clearfine iPhone screens: the home screen with recent fines and their statuses, and the Add a fine screen" }
+frame: phone
+order: 3
+overview: Clearfine is a mobile app that helps UK drivers keep parking fines, road charges, and payment deadlines in one place. I designed the app end to end, from onboarding to subscriptions. It's now live on the App Store.
+hero:
+  - { src: /work/clearfine/03-dashboard.png, alt: "Clearfine dashboard showing fines with amounts, due dates and statuses" }
+---
+
+## 01. The problem
+
+<Lead>Fines are easy to lose track of.</Lead>
+
+<TextWithImage
+  src="/work/clearfine/02-discovery-notice.png"
+  width={490}
+  height={787}
+  alt="A real penalty charge notice: £140, reduced to £70 if paid within 14 days. Personal details blurred."
+  caption="What drivers actually deal with."
+>
+
+Notices arrive on windscreens or through the post. Deadlines sit in one place, payment links in another, and most drivers rely on memory or calendar reminders to keep track. Miss a deadline, and a fine can become more expensive.
+
+Managing fines gets even messier when you're dealing with multiple cars, rental vehicles, or a company vehicle.
+
+The challenge was to help drivers organise their charges, keep track of deadlines, and know what to do next.
+
+</TextWithImage>
+
+## 02. Discovery
+
+<Lead>The problem wasn't just remembering. It was keeping everything together.</Lead>
+
+I spoke with users to understand how they managed parking fines and road charges, the challenges they faced keeping track of deadlines, and how they handled payments.
+
+I also reviewed official UK payment guidance and existing parking apps to understand the payment process and what solutions were already available.
+
+I looked at the process from the driver's perspective: identifying who issued a fine, understanding the amount and deadline, keeping track of outstanding charges, and finding the right place to pay.
+
+Three things stood out:
+
+- **The process was fragmented.** Fine details, payment instructions, and deadlines weren't always easy to manage in one place.
+- **Missing a deadline could be costly.** Drivers needed to know when to pay to avoid losing an early-payment discount or incurring additional charges.
+- **Existing solutions addressed parts of the problem.** Features like scanning and reminders were useful, but there was an opportunity to bring fine tracking, vehicle management, deadlines, and payment access together.
+
+These findings shaped three priorities for Clearfine:
+
+- **Make fine entry quick.** Reduce the effort involved in adding a fine.
+- **Make deadlines easy to spot.** Help drivers understand what needs attention and when.
+- **Make the next step clear.** Guide users from recording a fine to tracking it and accessing the relevant payment portal.
+
+Rather than simply digitising fine notices, I wanted to create a connected experience that helped drivers stay organised without having to remember every detail themselves.
+
+<JourneyDiagram
+  title="How drivers handle fines today"
+  caption="The journey before Clearfine."
+  steps={[
+    { label: "Notice arrives (windscreen or post)" },
+    { label: "Work out who issued it", warning: "Different issuers, different rules" },
+    { label: "Find the deadline and discount window", warning: "Miss the discount window and it can cost more" },
+    { label: "Try to remember it" },
+    { label: "Find the right council’s payment site", warning: "Every council has its own site" },
+    { label: "Pay" },
+  ]}
+/>
+
+## 03. Design decisions
+
+### Onboarding that fits the driver
+
+Not every driver has the same setup. Some have one personal car, while others manage multiple vehicles, rentals, or company cars.
+
+Rather than assume everyone would use the app in the same way, I designed onboarding around a few questions about how people drive and how they currently manage fines. Their answers help shape the experience around their needs.
+
+<Screens images={[
+  { src: "/work/clearfine/03-onboarding-1.png", alt: "Onboarding: never miss a fine or charge again" },
+  { src: "/work/clearfine/03-onboarding-2.png", alt: "Onboarding: upload a photo, get reminders, pay your council" },
+  { src: "/work/clearfine/03-onboarding-3.png", alt: "Onboarding: tunnel charges handled" },
+]} />
+
+<Screens images={[
+  { src: "/work/clearfine/03-create-account-1.png", alt: "Create account question: how do you currently keep track of road charges and PCNs?" },
+  { src: "/work/clearfine/03-create-account-2.png", alt: "Create account question: do you manage driving-related admin for more than one vehicle?" },
+  { src: "/work/clearfine/03-create-account-3.png", alt: "Create account question: what best describes the vehicle you currently drive?" },
+]} />
+
+### Scan, don't type
+
+Typing out fine details is tedious and leaves room for errors. I designed an OCR scanning flow that extracts information from a photo of the notice, reducing the amount users have to enter manually.
+
+Users can review and edit the extracted details before saving. Manual entry is also available depending on the user's preference.
+
+<Screens images={[
+  { src: "/work/clearfine/03-scan-1.png", alt: "Add a fine: scan or upload, or enter manually" },
+  { src: "/work/clearfine/03-scan-ocr.png", alt: "Camera view scanning a paper penalty charge notice inside the capture frame" },
+  { src: "/work/clearfine/03-scan-2.png", alt: "Extracted fine details ready to review and edit" },
+]} />
+
+### Show what needs attention first
+
+A list of fines is only useful if drivers can tell which ones need attention.
+
+The dashboard displays fine amounts, due dates, and clear statuses: Upcoming, Paid, and Overdue. This helps users understand where things stand without opening each fine individually.
+
+<Screens images={[
+  { src: "/work/clearfine/03-dashboard.png", alt: "Dashboard with Upcoming, Paid and Overdue statuses" },
+]} />
+
+### Reminders that fit your routine
+
+Users shouldn't have to open the app just to stay on top of their fines.
+
+I designed reminders across push notifications, SMS, email, and calendar integrations, so users can receive updates through channels they already use.
+
+<Screens images={[
+  { src: "/work/clearfine/03-reminders-1.png", alt: "Notification permission: stay on top of every deadline" },
+  { src: "/work/clearfine/03-reminders-2.png", alt: "Notifications with due dates and pay actions" },
+  { src: "/work/clearfine/03-reminders-3.png", alt: "Calendar permission: add fine due dates to your calendar" },
+]} />
+
+### Convert without catching people off guard
+
+Clearfine Premium starts with a two-month free trial. Rather than putting a paywall in front of users immediately, I placed it after they've had an opportunity to experience the core features.
+
+The trial messaging clearly explains the offer, and users receive a heads-up before it ends. The aim is to make the transition to a paid subscription clear, without unexpected charges.
+
+<Screens images={[
+  { src: "/work/clearfine/03-trial-1.png", alt: "Free trial ending reminder with upgrade option" },
+  { src: "/work/clearfine/03-trial-2.png", alt: "Premium feature: add fines instantly" },
+  { src: "/work/clearfine/03-trial-3.png", alt: "Premium feature: manage all your vehicles" },
+]} />
+
+## 04. The solution
+
+<Lead>One flow, from fine to paid.</Lead>
+
+I brought the core experience together into a single journey, guiding users from adding a vehicle to keeping track of fines and accessing the relevant payment portal.
+
+<FlowSteps steps={[
+  { title: "Add a vehicle", text: "Users add their vehicle details so Clearfine can organise the information associated with it." },
+  { title: "Scan or enter a fine", text: "Users can scan a notice to extract its details or enter the information manually." },
+  { title: "Review", text: "Users can check the fine details, including the amount and deadline, before saving them." },
+  { title: "Track", text: "Fines appear alongside their statuses and due dates, making it easier to see what has been paid and what still needs attention." },
+  { title: "Get reminded", text: "Notifications and reminders help users keep upcoming deadlines in view." },
+  { title: "Pay on the council's portal", text: "When it's time to pay, users can proceed to the relevant council website. Clearfine explains what happens when they leave the app, so the transition doesn't feel unexpected." },
+]} />
+
+Each step leads into the next, with clear statuses, helpful error messages, and straightforward explanations throughout the journey.
+
+<Screens images={[
+  { src: "/work/clearfine/04-solution-1.png", alt: "Add a vehicle with details auto-filled from DVLA" },
+  { src: "/work/clearfine/04-solution-2.png", alt: "Car details with vehicle status and fines" },
+  { src: "/work/clearfine/04-solution-3.png", alt: "Charge details" },
+  { src: "/work/clearfine/04-solution-4.png", alt: "Appeal window closed, with a link to the council website" },
+]} />
+
+## 05. Impact
+
+<Lead>From the first screen to App Store.</Lead>
+
+As the sole designer, I took Clearfine from idea to launch in two months, designing **80+ screens** across onboarding, fine scanning, tracking, reminders, and subscriptions.
+
+The app is now live on the App Store.
+
+With the product live, we're tracking the metrics that matter most to the experience:
+
+- Scan completion
+- Reminder adoption
+- On-time payments
+- Trial-to-paid conversion
+
+These metrics will help us understand how users engage with the core features and where the experience can improve.
+
+## 06. Reflection
+
+<Lead>Design the journey, not just the screens.</Lead>
+
+Clearfine reinforced something I value in product design: a useful product helps people understand what they have, what needs attention, and what to do next.
+
+The goal throughout was simple: help drivers remember less and feel more in control.
+
+**What I'd do differently: keep it simple as it grows.**
+
+With scanning, vehicle management, reminders, and payments in one app, every new feature needs to earn its place. In future iterations, I'd continue evaluating how each feature fits into the user's journey and remove steps that don't need to be there.
