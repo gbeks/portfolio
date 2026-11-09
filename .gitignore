@@ -54,3 +54,6 @@ screens-raw/
 
 # working notes, not part of the site
 /gbeke-portfolio.md
+
+# local Figma plugin, not part of the site
+/figma-sentence-case-plugin/
